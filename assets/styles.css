@@ -674,14 +674,17 @@ body * {
   text-decoration: underline !important;
 }
 
-/* 作者姓名不加粗 */
+/* 作者整体正常粗细，但 strong/b 保持加粗 */
 .authors,
-.publication-item .authors,
+.publication-item .authors {
+  font-weight: 400 !important;
+}
+
 .authors strong,
 .publication-item .authors strong,
 .authors b,
 .publication-item .authors b {
-  font-weight: 400 !important;
+  font-weight: 700 !important;
 }
 
 /* 目录字体：蓝色 + 加粗 */
