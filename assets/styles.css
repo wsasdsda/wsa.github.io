@@ -695,3 +695,21 @@ body * {
 .section-heading span {
   color: #0066cc !important;
 }
+
+/* 取消父级整体下划线 */
+.paper-links,
+.paper-links:hover {
+  text-decoration: none !important;
+}
+
+/* 默认 Paper / Code 不显示下划线 */
+.paper-links a,
+.publication-item .links-row a {
+  text-decoration: none !important;
+}
+
+/* 只让鼠标悬停的那个链接显示下划线 */
+.paper-links a:hover,
+.publication-item .links-row a:hover {
+  text-decoration: underline !important;
+}
