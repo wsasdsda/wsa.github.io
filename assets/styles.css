@@ -642,24 +642,6 @@ body * {
   color: #000000 !important;
 }
 
-/* 目录字体加粗 */
-.section-nav a {
-  font-weight: 700 !important;
-}
-
-/* 目录字体改成蓝色 */
-.section-nav,
-.section-nav a,
-.section-nav a:visited {
-  color: var(--accent-strong) !important;
-}
-
-/* 目录悬停时稍微亮一点 */
-.section-nav a:hover {
-  color: var(--accent) !important;
-  text-decoration: underline;
-}
-
 /* 代表论文中的 [paper] 和 [code] 改成深蓝色 */
 .paper-links,
 .paper-links a,
@@ -686,30 +668,18 @@ body * {
   font-weight: 400 !important;
 }
 
-/* 强制修改目录颜色 */
-.section-nav,
+/* 目录字体改成蓝色 */
 .section-nav a,
-.section-nav li,
-.section-nav span,
-nav,
-nav a,
-nav li,
-nav span,
-.menu,
-.menu a,
-.toc,
-.toc a,
-.sidebar,
-.sidebar a {
-  color: var(--accent-strong) !important;
+.section-nav a:visited,
+.section-nav a * {
+  color: #0066cc !important;
 }
 
-/* 目录 hover 效果 */
+/* 目录悬停颜色 */
 .section-nav a:hover,
-nav a:hover,
-.menu a:hover,
-.toc a:hover,
-.sidebar a:hover {
-  color: var(--accent) !important;
+.section-nav a:hover *,
+.section-nav a:focus,
+.section-nav a:focus * {
+  color: #004c99 !important;
   text-decoration: underline;
 }
