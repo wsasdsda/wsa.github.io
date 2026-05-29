@@ -672,7 +672,7 @@ body * {
 .section-nav a,
 .section-nav a:visited,
 .section-nav a * {
-  color: #0066cc !important;
+  color: #0000ff !important;
 }
 
 /* 目录悬停颜色 */
