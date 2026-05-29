@@ -1,3 +1,4 @@
+```css
 :root {
   --bg: #eef6ff;
   --bg-soft: #f8fbff;
@@ -57,7 +58,7 @@ body::before {
 .profile-card,
 .hero-panel,
 .content-section {
-  border: 1px solid var(--line);
+  border: none;
   background: var(--paper);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
@@ -165,7 +166,7 @@ body::before {
   width: 24px;
   height: 24px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: none;
   background-color: rgba(255, 255, 255, 0.72);
   background-position: center;
   background-repeat: no-repeat;
@@ -210,7 +211,7 @@ body::before {
 .section-nav {
   margin-top: 26px;
   padding-top: 20px;
-  border-top: 1px solid var(--line);
+  border-top: none;
 }
 
 .section-nav a {
@@ -222,7 +223,7 @@ body::before {
 }
 
 .section-nav a:hover {
-  background: rgba(159, 61, 34, 0.08);
+  background: rgba(46, 111, 163, 0.08);
   transform: translateX(4px);
 }
 
@@ -285,7 +286,7 @@ body::before {
 }
 
 .button.secondary {
-  border: 1px solid var(--line);
+  border: none;
   background: rgba(255, 255, 255, 0.72);
   color: var(--text);
 }
@@ -300,6 +301,8 @@ body::before {
   gap: 14px;
   align-items: baseline;
   margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(95, 129, 163, 0.22);
 }
 
 .section-heading span {
@@ -337,19 +340,14 @@ body::before {
   gap: 14px;
 }
 
-.info-card,
-.publication-item {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: var(--paper-strong);
-}
-
 .info-card {
   padding: 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
 }
 
-.info-card h4,
-.publication-item h4 {
+.info-card h4 {
   margin-bottom: 8px;
   font-size: 1.08rem;
 }
@@ -360,24 +358,42 @@ body::before {
 }
 
 .publication-item {
-  padding: 20px;
+  position: relative;
+  padding: 0 0 0 24px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.publication-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  color: var(--accent-strong);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .publication-item h4 {
-  position: relative;
-  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
   line-height: 1.45;
 }
 
 .publication-item h4::before {
-  position: absolute;
-  left: 0;
-  top: 0.05em;
-  content: "•";
-  color: var(--accent-strong);
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1;
+  content: none;
+}
+
+.publication-item h4,
+.publication-item .authors,
+.publication-item .venue,
+.publication-item .summary,
+.publication-item .links-row {
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .paper-links {
@@ -455,5 +471,16 @@ body::before {
   .section-heading {
     flex-direction: column;
     gap: 6px;
+    padding-bottom: 10px;
+  }
+
+  .publication-item {
+    padding-left: 22px;
+  }
+
+  .publication-item::before {
+    left: 0;
+    top: 0.12em;
   }
 }
+```
