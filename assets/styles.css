@@ -83,7 +83,7 @@ body::before {
     ". contact nav";
   column-gap: 24px;
   row-gap: 7px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .profile-card::after {
@@ -106,19 +106,21 @@ body::before {
   text-transform: uppercase;
 }
 
-/* 照片样式：底部靠近“主要研究方向”这一行 */
+/* 照片：上边对齐姓名，下边对齐主要研究方向 */
 .avatar {
   grid-area: avatar;
   width: 118px;
-  height: 148px;
+  height: 100% !important;
+  min-height: 0;
   margin: 0 !important;
-  align-self: start !important;
+  align-self: stretch !important;
   justify-self: start !important;
-  transform: translateY(86px) !important;
+  transform: none !important;
   border: none !important;
   border-radius: 0;
   background: transparent !important;
   box-shadow: none !important;
+  overflow: hidden;
 }
 
 img.avatar {
@@ -175,6 +177,7 @@ img.avatar {
 .bio-snippet {
   grid-area: bio;
   margin: 0;
+  align-self: start !important;
   color: #000000;
   font-size: 0.98rem;
   line-height: 1.65;
@@ -182,7 +185,7 @@ img.avatar {
 
 .contact-list {
   grid-area: contact;
-  margin-top: 8px;
+  margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
@@ -568,10 +571,10 @@ img.avatar {
 
   .avatar {
     width: 82px;
-    height: 104px;
+    height: 100% !important;
     margin: 0 !important;
-    align-self: start !important;
-    transform: translateY(56px) !important;
+    align-self: stretch !important;
+    transform: none !important;
     border-radius: 10px;
   }
 
@@ -715,7 +718,7 @@ body * {
   color: #0066cc !important;
 }
 
-/* 最终对齐保险：照片底部靠近“主要研究方向”这一行 */
+/* 最终对齐保险：照片上边对齐姓名，下边对齐主要研究方向 */
 .profile-card {
   grid-template-areas:
     "badge badge nav"
@@ -724,18 +727,33 @@ body * {
     "avatar org nav"
     "avatar bio nav"
     ". contact nav" !important;
-  align-items: start !important;
+  align-items: stretch !important;
 }
 
 .avatar,
 img.avatar {
+  grid-area: avatar !important;
+  width: 118px !important;
+  height: 100% !important;
   margin: 0 !important;
-  align-self: start !important;
+  align-self: stretch !important;
   justify-self: start !important;
-  transform: translateY(86px) !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
 }
 
 .profile-card h1 {
-  margin-top: 0 !important;
+  margin: 0 !important;
   align-self: start !important;
+}
+
+.bio-snippet {
+  margin: 0 !important;
+  align-self: start !important;
+}
+
+.contact-list {
+  grid-area: contact !important;
+  margin-top: 12px !important;
 }
