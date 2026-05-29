@@ -30,7 +30,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(130, 180, 230, 0.18), transparent 24%),
     radial-gradient(circle at bottom right, rgba(170, 205, 240, 0.16), transparent 22%),
-    linear-gradient(180deg, #edf6ff 0%, #f8fbff 48%, #f1f7ff 100%);
+    linear-gradient(180deg, #edf6ff 0%, #eef6ff 48%, #eaf4ff 100%);
 }
 
 body::before {
@@ -39,8 +39,8 @@ body::before {
   z-index: -1;
   content: "";
   background-image:
-    linear-gradient(rgba(109, 143, 176, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 143, 176, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(109, 143, 176, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 143, 176, 0.04) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -501,12 +501,14 @@ body::before {
 }
 
 /* 最终保险覆盖：只作用于右侧，不影响左侧目录 */
-.content-column > .hero-panel,
-.content-column > .content-section,
+.content-column,
+.content-column > *,
+.content-column .hero-panel,
+.content-column .content-section,
 .content-column .info-card,
 .content-column .publication-item,
 .content-column .contact-panel {
-  border: none !important;
+  border-color: transparent !important;
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
