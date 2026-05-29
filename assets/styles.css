@@ -54,21 +54,17 @@ body::before {
   align-items: start;
 }
 
-.profile-card,
-.hero-panel,
-.content-section {
-  border: 1px solid var(--line);
-  background: var(--paper);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
-}
-
+/* 左侧目录模块：保留白色卡片 */
 .profile-card {
   position: sticky;
   top: 22px;
   padding: 28px;
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--paper);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
 }
 
 .profile-card::after {
@@ -222,7 +218,7 @@ body::before {
 }
 
 .section-nav a:hover {
-  background: rgba(159, 61, 34, 0.08);
+  background: rgba(46, 111, 163, 0.08);
   transform: translateX(4px);
 }
 
@@ -231,12 +227,16 @@ body::before {
   gap: 20px;
 }
 
+/* 右侧顶部模块：无白色背景 */
 .hero-panel {
   padding: 30px;
+  border: none;
   border-radius: var(--radius-lg);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(237, 246, 255, 0.9)),
-    var(--paper);
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .eyebrow {
@@ -286,13 +286,20 @@ body::before {
 
 .button.secondary {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.72);
+  background: transparent;
   color: var(--text);
 }
 
+/* 右侧内容模块：无白色背景 */
 .content-section {
   padding: 26px 28px 28px;
+  border: none;
   border-radius: 24px;
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .section-heading {
@@ -300,6 +307,8 @@ body::before {
   gap: 14px;
   align-items: baseline;
   margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(95, 129, 163, 0.22);
 }
 
 .section-heading span {
@@ -337,19 +346,18 @@ body::before {
   gap: 14px;
 }
 
-.info-card,
-.publication-item {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: var(--paper-strong);
-}
-
+/* 右侧内部小模块：无白色背景 */
 .info-card {
   padding: 18px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
 }
 
-.info-card h4,
-.publication-item h4 {
+.info-card h4 {
   margin-bottom: 8px;
   font-size: 1.08rem;
 }
@@ -360,24 +368,44 @@ body::before {
 }
 
 .publication-item {
-  padding: 20px;
+  position: relative;
+  padding: 0 0 0 24px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.publication-item::before {
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  content: "•";
+  color: var(--accent-strong);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .publication-item h4 {
-  position: relative;
-  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
   line-height: 1.45;
 }
 
 .publication-item h4::before {
-  position: absolute;
-  left: 0;
-  top: 0.05em;
-  content: "•";
-  color: var(--accent-strong);
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1;
+  content: none;
+}
+
+.publication-item h4,
+.publication-item .authors,
+.publication-item .venue,
+.publication-item .summary,
+.publication-item .links-row {
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .paper-links {
@@ -417,6 +445,10 @@ body::before {
 
 .contact-panel {
   padding: 2px 0 0;
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
 }
 
 @media (max-width: 980px) {
@@ -455,5 +487,37 @@ body::before {
   .section-heading {
     flex-direction: column;
     gap: 6px;
+    padding-bottom: 10px;
   }
+
+  .publication-item {
+    padding-left: 22px;
+  }
+
+  .publication-item::before {
+    left: 0;
+    top: 0.12em;
+  }
+}
+
+/* 最终保险覆盖：只作用于右侧，不影响左侧目录 */
+.content-column > .hero-panel,
+.content-column > .content-section,
+.content-column .info-card,
+.content-column .publication-item,
+.content-column .contact-panel {
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 最终保险覆盖：左侧目录保持白块 */
+.profile-card {
+  border: 1px solid var(--line) !important;
+  background: var(--paper) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: var(--shadow) !important;
 }
