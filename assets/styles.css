@@ -30,7 +30,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(130, 180, 230, 0.18), transparent 24%),
     radial-gradient(circle at bottom right, rgba(170, 205, 240, 0.16), transparent 22%),
-    linear-gradient(180deg, #edf6ff 0%, #f8fbff 48%, #f1f7ff 100%);
+    linear-gradient(180deg, #edf6ff 0%, #eef6ff 48%, #eaf4ff 100%);
 }
 
 body::before {
@@ -39,8 +39,8 @@ body::before {
   z-index: -1;
   content: "";
   background-image:
-    linear-gradient(rgba(109, 143, 176, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 143, 176, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(109, 143, 176, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 143, 176, 0.05) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -58,9 +58,11 @@ body::before {
 .hero-panel,
 .content-section {
   border: none;
-  background: transparent;
-  backdrop-filter: none;
-  box-shadow: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
 }
 
 .profile-card {
@@ -72,7 +74,8 @@ body::before {
 }
 
 .profile-card::after {
-  display: none;
+  display: none !important;
+  content: none !important;
 }
 
 .profile-badge {
@@ -224,10 +227,20 @@ body::before {
   gap: 20px;
 }
 
+.content-column > * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
 .hero-panel {
   padding: 30px;
   border-radius: var(--radius-lg);
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
 .eyebrow {
@@ -284,7 +297,11 @@ body::before {
 .content-section {
   padding: 26px 28px 28px;
   border-radius: 24px;
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
 
 .section-heading {
@@ -335,8 +352,10 @@ body::before {
   padding: 18px;
   border: none;
   border-radius: var(--radius-md);
-  background: transparent;
-  box-shadow: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
 .info-card h4 {
@@ -354,8 +373,10 @@ body::before {
   padding: 0 0 0 24px;
   border: none;
   border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
 .publication-item::before {
@@ -425,9 +446,13 @@ body::before {
 
 .contact-panel {
   padding: 2px 0 0;
-  background: transparent;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
+/* 响应式 */
 @media (max-width: 980px) {
   .page-shell {
     grid-template-columns: 1fr;
@@ -450,9 +475,6 @@ body::before {
   .content-section {
     padding: 20px;
     border-radius: 20px;
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
   }
 
   .hero-panel h2 {
@@ -478,20 +500,68 @@ body::before {
     left: 0;
     top: 0.12em;
   }
+}
+
+/* 最终强制覆盖：必须放在整个 CSS 最后 */
 .profile-card,
 .hero-panel,
 .content-section,
 .info-card,
 .publication-item,
-.contact-panel {
-  background: none !important;
+.contact-panel,
+.content-column > *,
+.page-shell > *,
+section,
+.card,
+.section,
+.module,
+.panel,
+.block,
+.container,
+[class*="card"],
+[class*="section"],
+[class*="panel"] {
+  background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
 }
 
-.profile-card::after {
-  display: none !important;
-  content: none !important;
-}
+/* 去掉可能由伪元素生成的白色背景 */
+.profile-card::before,
+.profile-card::after,
+.hero-panel::before,
+.hero-panel::after,
+.content-section::before,
+.content-section::after,
+.info-card::before,
+.info-card::after,
+.publication-item::before,
+.publication-item::after,
+.contact-panel::before,
+.contact-panel::after,
+.content-column > *::before,
+.content-column > *::after,
+.page-shell > *::before,
+.page-shell > *::after,
+section::before,
+section::after,
+.card::before,
+.card::after,
+.section::before,
+.section::after,
+.module::before,
+.module::after,
+.panel::before,
+.panel::after,
+.block::before,
+.block::after,
+.container::before,
+.container::after {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
 }
