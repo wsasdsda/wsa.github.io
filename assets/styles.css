@@ -478,4 +478,20 @@ body::before {
     left: 0;
     top: 0.12em;
   }
+.profile-card,
+.hero-panel,
+.content-section,
+.info-card,
+.publication-item,
+.contact-panel {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.profile-card::after {
+  display: none !important;
+  content: none !important;
+}
 }
