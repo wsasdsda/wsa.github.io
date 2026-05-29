@@ -80,7 +80,7 @@ body::before {
     "avatar title nav"
     "avatar org nav"
     "avatar bio nav"
-    "avatar contact nav";
+    ". contact nav";
   column-gap: 24px;
   row-gap: 7px;
   align-items: start;
@@ -106,13 +106,13 @@ body::before {
   text-transform: uppercase;
 }
 
-/* 照片样式：只改变显示效果，不改图片本身 */
+/* 照片样式：底部和“主要研究方向”一行对齐 */
 .avatar {
   grid-area: avatar;
   width: 118px;
   height: 148px;
   margin: 0 !important;
-  align-self: start !important;
+  align-self: end !important;
   justify-self: start !important;
   border: none !important;
   border-radius: 0;
@@ -528,7 +528,7 @@ img.avatar {
       "avatar title"
       "avatar org"
       "avatar bio"
-      "avatar contact"
+      ". contact"
       "nav nav";
   }
 
@@ -569,6 +569,7 @@ img.avatar {
     width: 82px;
     height: 104px;
     margin: 0 !important;
+    align-self: end !important;
     border-radius: 10px;
   }
 
@@ -712,15 +713,22 @@ body * {
   color: #0066cc !important;
 }
 
-/* 个人照片和右侧文字顶部对齐 */
+/* 最终对齐保险：照片底部对齐到“主要研究方向”所在行 */
 .profile-card {
+  grid-template-areas:
+    "badge badge nav"
+    "avatar name nav"
+    "avatar title nav"
+    "avatar org nav"
+    "avatar bio nav"
+    ". contact nav" !important;
   align-items: start !important;
 }
 
 .avatar,
 img.avatar {
-  margin-top: 0 !important;
-  align-self: start !important;
+  margin: 0 !important;
+  align-self: end !important;
   justify-self: start !important;
 }
 
