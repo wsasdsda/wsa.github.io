@@ -728,3 +728,66 @@ img.avatar {
   margin-top: 0 !important;
   align-self: start !important;
 }
+
+/* 美化右侧目录 */
+.section-nav {
+  grid-area: nav !important;
+  margin-top: 0 !important;
+  padding: 12px 0 12px 18px !important;
+  border-left: 1px solid rgba(0, 102, 204, 0.22) !important;
+  align-self: stretch !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 6px !important;
+}
+
+/* 目录文字 */
+.section-nav a {
+  position: relative;
+  display: block !important;
+  padding: 7px 12px !important;
+  border-radius: 8px !important;
+
+  color: #0066cc !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.01em !important;
+  text-decoration: none !important;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 左侧小蓝点 */
+.section-nav a::before {
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  content: "";
+  border-radius: 999px;
+  background: #0066cc;
+  transform: translateY(-50%);
+  opacity: 0.55;
+}
+
+/* 悬停效果 */
+.section-nav a:hover,
+.section-nav a:focus {
+  color: #004c99 !important;
+  background: rgba(0, 102, 204, 0.07) !important;
+  transform: translateX(3px);
+  text-decoration: none !important;
+}
+
+.section-nav a:hover::before,
+.section-nav a:focus::before {
+  opacity: 1;
+}
+
