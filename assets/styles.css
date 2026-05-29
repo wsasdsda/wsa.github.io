@@ -642,6 +642,11 @@ body * {
   color: #000000 !important;
 }
 
+/* 目录字体加粗 */
+.section-nav a {
+  font-weight: 700 !important;
+}
+
 /* 目录字体改成蓝色 */
 .section-nav,
 .section-nav a,
