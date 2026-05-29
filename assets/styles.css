@@ -801,3 +801,32 @@ img.avatar {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* 论文标题、发表信息、Paper/Code 紧凑排列 */
+.publication-item h4 {
+  display: block !important;
+  justify-content: initial !important;
+  align-items: initial !important;
+  gap: 0 !important;
+  text-align: left !important;
+}
+
+/* 取消 venue 被推到右侧 */
+.publication-item h4 .venue {
+  display: inline !important;
+  margin-left: 8px !important;
+  padding-left: 0 !important;
+  float: none !important;
+  position: static !important;
+  white-space: nowrap;
+}
+
+/* Paper / Code 紧跟 venue 后面 */
+.publication-item h4 .paper-links {
+  display: inline !important;
+  margin-left: 8px !important;
+  padding-left: 0 !important;
+  float: none !important;
+  position: static !important;
+  white-space: nowrap;
+}
