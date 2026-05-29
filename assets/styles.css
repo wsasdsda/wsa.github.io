@@ -642,9 +642,17 @@ body * {
   color: #000000 !important;
 }
 
-/* 目录字体加粗 */
-.section-nav a {
-  font-weight: 700 !important;
+/* 目录字体改成蓝色 */
+.section-nav,
+.section-nav a,
+.section-nav a:visited {
+  color: var(--accent-strong) !important;
+}
+
+/* 目录悬停时稍微亮一点 */
+.section-nav a:hover {
+  color: var(--accent) !important;
+  text-decoration: underline;
 }
 
 /* 代表论文中的 [paper] 和 [code] 改成深蓝色 */
