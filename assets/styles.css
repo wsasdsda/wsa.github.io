@@ -394,6 +394,16 @@ img.avatar {
   gap: 18px 28px;
 }
 
+/* Research Interests 单独改成竖向排列 */
+#research .grid-cards {
+  grid-template-columns: 1fr !important;
+  gap: 18px;
+}
+
+#research .info-card {
+  width: 100%;
+}
+
 .info-card {
   padding: 0;
   border: none;
