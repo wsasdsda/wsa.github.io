@@ -1,18 +1,37 @@
+@font-face {
+  font-family: "AcademicMixed";
+  src: local("Cambria Math");
+  unicode-range: U+0030-0039, U+FF10-FF19, U+2070, U+00B2-00B3, U+00B9, U+2080-2089;
+}
+
+@font-face {
+  font-family: "AcademicMixed";
+  src: local("Times New Roman");
+  unicode-range: U+0000-002F, U+003A-024F, U+1E00-1EFF;
+}
+
+@font-face {
+  font-family: "AcademicMixed";
+  src: local("SimSun"), local("宋体"), local("Songti SC"), local("STSong");
+  unicode-range: U+3000-303F, U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF, U+FF00-FFEF;
+}
+
 :root {
-  --bg: #eef6ff;
-  --bg-soft: #f8fbff;
-  --paper: rgba(255, 255, 255, 0.88);
+  --bg: #ffffff;
+  --bg-soft: #ffffff;
+  --paper: rgba(255, 255, 255, 0.96);
   --paper-strong: #ffffff;
-  --line: rgba(95, 129, 163, 0.16);
+  --line: rgba(95, 129, 163, 0.18);
   --text: #1e2f42;
   --muted: #59708a;
   --accent: #2e6fa3;
   --accent-strong: #1f5784;
   --accent-soft: rgba(46, 111, 163, 0.12);
-  --shadow: 0 18px 60px rgba(68, 102, 140, 0.14);
+  --shadow: 0 14px 38px rgba(68, 102, 140, 0.12);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
+  --font-main: "AcademicMixed", "Times New Roman", SimSun, "宋体", "Songti SC", "STSong", serif;
 }
 
 * {
@@ -26,38 +45,28 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  font-family: "Source Sans 3", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(130, 180, 230, 0.18), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(170, 205, 240, 0.16), transparent 22%),
-    linear-gradient(180deg, #edf6ff 0%, #eef6ff 48%, #eaf4ff 100%);
+  font-family: var(--font-main);
+  background: #ffffff;
 }
 
 body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  content: "";
-  background-image:
-    linear-gradient(rgba(109, 143, 176, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(109, 143, 176, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
+  display: none;
+  content: none;
 }
 
 .page-shell {
-  width: min(1240px, calc(100% - 32px));
+  width: min(1040px, calc(100% - 32px));
   margin: 28px auto;
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 24px;
   align-items: start;
 }
 
-/* 左侧目录模块：保留白色卡片 */
+/* 顶部个人目录模块 */
 .profile-card {
-  position: sticky;
-  top: 22px;
+  position: static;
+  width: 100%;
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -100,7 +109,7 @@ body::before {
   background:
     linear-gradient(135deg, rgba(58, 129, 186, 0.95), rgba(31, 87, 132, 0.9));
   color: #f6fbff;
-  font-family: "Noto Serif SC", serif;
+  font-family: var(--font-main);
   font-size: 2rem;
   font-weight: 700;
   box-shadow: 0 14px 30px rgba(58, 111, 161, 0.24);
@@ -112,7 +121,7 @@ body::before {
 .info-card h4,
 .publication-item h4 {
   margin: 0;
-  font-family: "Noto Serif SC", serif;
+  font-family: var(--font-main);
 }
 
 .profile-card h1 {
@@ -222,16 +231,17 @@ body::before {
   transform: translateX(4px);
 }
 
+/* 内容区整体排在顶部模块下方 */
 .content-column {
   display: grid;
   gap: 20px;
 }
 
-/* 右侧顶部模块：无白色背景 */
+/* 顶部介绍模块：无白色背景 */
 .hero-panel {
-  padding: 30px;
+  padding: 30px 0;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: 0;
   background: transparent;
   background-color: transparent;
   background-image: none;
@@ -290,11 +300,11 @@ body::before {
   color: var(--text);
 }
 
-/* 右侧内容模块：无白色背景 */
+/* 内容模块：无白色背景 */
 .content-section {
-  padding: 26px 28px 28px;
+  padding: 24px 0;
   border: none;
-  border-radius: 24px;
+  border-radius: 0;
   background: transparent;
   background-color: transparent;
   background-image: none;
@@ -346,11 +356,11 @@ body::before {
   gap: 14px;
 }
 
-/* 右侧内部小模块：无白色背景 */
+/* 内容区内部小模块：无白色背景 */
 .info-card {
-  padding: 18px;
+  padding: 0;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   background: transparent;
   background-color: transparent;
   background-image: none;
@@ -410,7 +420,7 @@ body::before {
 
 .paper-links {
   margin-left: 6px;
-  font-family: "Source Sans 3", sans-serif;
+  font-family: var(--font-main);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -468,11 +478,15 @@ body::before {
     gap: 14px;
   }
 
-  .profile-card,
-  .hero-panel,
-  .content-section {
+  .profile-card {
     padding: 20px;
     border-radius: 20px;
+  }
+
+  .hero-panel,
+  .content-section {
+    padding: 20px 0;
+    border-radius: 0;
   }
 
   .hero-panel h2 {
@@ -500,7 +514,7 @@ body::before {
   }
 }
 
-/* 最终保险覆盖：只作用于右侧，不影响左侧目录 */
+/* 最终保险覆盖：内容区无卡片背景 */
 .content-column,
 .content-column > *,
 .content-column .hero-panel,
@@ -516,8 +530,9 @@ body::before {
   backdrop-filter: none !important;
 }
 
-/* 最终保险覆盖：左侧目录保持白块 */
+/* 最终保险覆盖：顶部个人目录模块保留白色卡片 */
 .profile-card {
+  position: static !important;
   border: 1px solid var(--line) !important;
   background: var(--paper) !important;
   backdrop-filter: blur(10px) !important;
