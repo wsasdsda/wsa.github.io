@@ -57,10 +57,10 @@ body::before {
 .profile-card,
 .hero-panel,
 .content-section {
+  border: 1px solid var(--line);
   background: var(--paper);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
-  border: none;
 }
 
 .profile-card {
@@ -165,7 +165,7 @@ body::before {
   width: 24px;
   height: 24px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid var(--line);
   background-color: rgba(255, 255, 255, 0.72);
   background-position: center;
   background-repeat: no-repeat;
@@ -222,7 +222,7 @@ body::before {
 }
 
 .section-nav a:hover {
-  background: rgba(46, 111, 163, 0.08);
+  background: rgba(159, 61, 34, 0.08);
   transform: translateX(4px);
 }
 
@@ -285,7 +285,7 @@ body::before {
 }
 
 .button.secondary {
-  border: none;
+  border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.72);
   color: var(--text);
 }
@@ -295,14 +295,11 @@ body::before {
   border-radius: 24px;
 }
 
-/* 模块标题区域 */
 .section-heading {
   display: flex;
   gap: 14px;
   align-items: baseline;
   margin-bottom: 18px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(95, 129, 163, 0.22);
 }
 
 .section-heading span {
@@ -340,36 +337,37 @@ body::before {
   gap: 14px;
 }
 
-/* 信息卡片 */
-.info-card {
-  padding: 18px;
-  border: none;
+.info-card,
+.publication-item {
+  border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 8px 24px rgba(68, 102, 140, 0.05);
+  background: var(--paper-strong);
 }
 
-.info-card h4 {
+.info-card {
+  padding: 18px;
+}
+
+.info-card h4,
+.publication-item h4 {
   margin-bottom: 8px;
   font-size: 1.08rem;
 }
 
-/* 论文列表 */
 .publication-list {
   display: grid;
   gap: 16px;
 }
 
 .publication-item {
-  position: relative;
-  padding: 20px 20px 20px 40px;
-  border: none;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 8px 24px rgba(68, 102, 140, 0.06);
+  padding: 20px;
 }
 
-/* 每篇论文前面的圆点 */
+.publication-item {
+  position: relative;
+  padding: 20px 20px 20px 40px;
+}
+
 .publication-item::before {
   content: "•";
   position: absolute;
@@ -381,7 +379,6 @@ body::before {
   line-height: 1;
 }
 
-/* 标题、作者、会议信息左对齐 */
 .publication-item h4,
 .publication-item .authors,
 .publication-item .venue,
@@ -391,8 +388,6 @@ body::before {
 }
 
 .publication-item h4 {
-  margin-bottom: 8px;
-  font-size: 1.08rem;
   line-height: 1.45;
 }
 
@@ -471,15 +466,5 @@ body::before {
   .section-heading {
     flex-direction: column;
     gap: 6px;
-    padding-bottom: 10px;
-  }
-
-  .publication-item {
-    padding: 18px 18px 18px 36px;
-  }
-
-  .publication-item::before {
-    left: 18px;
-    top: 20px;
   }
 }
